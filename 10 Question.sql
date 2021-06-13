@@ -28,7 +28,7 @@ WHERE ms.SupplierID = hpt.SupplierID AND hpt.PurchaseTransactionID = dpt.Purchas
 GROUP BY SupplierName, PurchasePrice
 HAVING SUM(Quantity) * PurchasePrice > 5000000
 
---Question
+--Question 5
 SELECT [Product Category Name] = mfc.[Name], [Total Products Sold] = CONVERT(VARCHAR, SUM(Quantity))+' product(s)'
 FROM MsFurnitureCategory mfc JOIN MsFurniture mf ON mfc.FurnitureCategoryID = mf.FurnitureCategoryID JOIN DetailSalesTransaction dst ON dst.FurnitureSold = mf.FurnitureID, (SELECT [MQuantity] = MAX(Quantity) FROM DetailSalesTransaction)[max]
 WHERE mf.[Name] NOT LIKE ('%g%')
